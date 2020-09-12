@@ -19,7 +19,7 @@
 				<a href="./index.html" class="logo-header"> <span class="logo-style">Web</span>Studio </a>
 				<ul class="site-nav">
 					<li class="item">
-						<a href="Studio" class="link"><h5>Студия</h5></a>
+						<a href="Studio" class="link line"><h5>Студия</h5></a>
 					</li>
 					<li class="item">
 						<a href="./portfolio.html" class="link"><h5>Портфолио</h5></a>
@@ -61,7 +61,7 @@
 						эффективные решения<br />
 						для вашего бизнеса
 					</h1>
-					<button class="button">Заказать услугу</button>
+					<button class="button" data-modal-open>Заказать услугу</button>
 				</div>
 			</section>
 
@@ -97,13 +97,22 @@
 					<h2 class="title-main">Чем мы занимаемся</h2>
 					<ul class="work-list">
 						<li class="item">
-							<img src="./image/img.png" alt="web image 1" />
+							<div class="container-overlay">
+								<img src="./image/img.png" alt="web image 1" />
+								<p class="work-text">декстопные приложения</p>
+							</div>
 						</li>
 						<li class="item">
-							<img src="./image/img2.png" alt="web image 2" />
+							<div class="container-overlay">
+								<img src="./image/img2.png" alt="web image 2" />
+								<p class="work-text">мобильные приложения</p>
+							</div>
 						</li>
 						<li class="item">
-							<img src="./image/img3.png" alt="web image 3" />
+							<div class="container-overlay">
+								<img src="./image/img3.png" alt="web image 3" />
+								<p class="work-text">дизайнерские решения</p>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -367,9 +376,18 @@
 					</ul>
 				</div>
 			</div>
-			<div class="backdrop"></div>
-			<div class="modal"></div>
-			<div></div>
 		</footer>
+
+		<!-- Modal -->
+
+		<div class="backdrop is-hidden" data-modal>
+			<div class="modal">
+				<button class="modal-btn" data-modal-close>
+					<img class="close" src="./image/modalvector.svg" width="11" height="11" />
+				</button>
+			</div>
+		</div>
+
+		<script src="./js/modal.js"></script>
 	</body>
 </html>

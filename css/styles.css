@@ -8,6 +8,8 @@
 	--background-color-main: #e5e5e5;
 	--background-color-button: #f5f4fa;
 	--social-icons-color: #afb1b8;
+	--background-color-work: rgba(47, 48, 58, 0.8);
+	--animation: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
 	background: var(--text-white-color);
@@ -119,6 +121,33 @@ img {
 	color: var(--accent-color);
 }
 
+.site-nav .link {
+	position: relative;
+	content: "";
+	padding-top: 32px;
+	padding-bottom: 32px;
+	color: var(--title-text-color);
+	font-weight: 500;
+	transition: color 250ms var(--animation);
+}
+
+.line::after {
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #2196f3;
+	border-radius: 2px;
+	opacity: 0.7;
+	transition: opacity 250ms var(--animation);
+}
+
+.site-nav:hover::after..link.line {
+	opacity: 1;
+}
+
 .contact .list {
 	display: flex;
 }
@@ -159,6 +188,7 @@ img {
 	flex-wrap: wrap;
 	margin: 0;
 	padding: 6px 0;
+	transition: color 250ms var(--animation);
 }
 
 .link:hover.contacs-icon {
@@ -345,6 +375,30 @@ a:hover svg {
 	padding-bottom: 50px;
 }
 
+.work-text {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 70px;
+	background: var(--background-color-work);
+
+	padding-top: 27px;
+	left: 0;
+	bottom: 0;
+	margin: 0;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 1.1em;
+	text-align: center;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: var(--text-white-color);
+}
+.container-overlay {
+	position: relative;
+}
+
 /* TEAM */
 
 .section-team {
@@ -417,6 +471,7 @@ a:hover svg {
 	background-color: var(--text-white-color);
 	border-radius: 50%;
 	background-color: var(--text-white-color);
+	transition: 550ms var(--animation);
 }
 
 .social-icon-link:hover .social-icon {
@@ -473,6 +528,7 @@ a:hover svg {
 	fill: var(--social-icons-color);
 	border: 1px solid var(--social-icons-color);
 	border-radius: 4px;
+	transition: 250ms var(--animation);
 }
 
 .clients-item:not(:last-child) {
@@ -566,6 +622,7 @@ a:hover svg {
 	height: 44px;
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 50%;
+	transition: 250ms var(--animation);
 }
 
 .footer-icon-link:hover .social-icon {
@@ -605,7 +662,7 @@ a:hover svg {
 	padding-bottom: 94px;
 }
 
-/*Buttons  */
+/*Buttons portfolio */
 
 .button-list {
 	display: flex;
@@ -640,6 +697,7 @@ a:hover svg {
 	border: 1px solid transparent;
 	background-color: var(--background-color-button);
 	color: var(--title-text-color);
+	transition: color 250ms var(--animation), box-shadow 250ms var(--animation), background-color 250ms var(--animation);
 }
 
 .button-item:last-child {
@@ -695,6 +753,21 @@ a:hover svg {
 	margin-right: 24px;
 	margin-top: 20px;
 }
+
+.portfolio-thumb::before {
+	display: inline-block;
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--accent-color);
+	opacity: 0;
+	transform: translateY(100%);
+	transition: transform 250ms var(--animation);
+}
+
 /* block */
 .container {
 	width: 1200px;
@@ -707,4 +780,58 @@ a:hover svg {
 	margin-left: 24px;
 	margin-right: 24px;
 	margin-bottom: 20px;
+}
+
+/* Modal */
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.2);
+	width: 100%;
+	height: 100%;
+	transition: 250ms var(--animation);
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	min-height: 581px;
+	min-width: 528px;
+
+	background: var(--text-white-color);
+
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+	border-radius: 4px;
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+	transition: opacity 250ms var(--animation);
+}
+
+.backdrop.is-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.modal-btn {
+	display: inline-flex;
+	position: absolute;
+	content: "";
+	background-color: var(--text-white-color);
+	background-image: url(../image/x.svg);
+	background-size: 11px;
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 30px;
+	height: 30px;
+	right: 8px;
+	top: 8px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 50%;
+	outline: none;
+
+	transform: rotateY(0);
+	transition: transform 250ms linear var(--animation);
 }

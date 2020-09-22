@@ -471,7 +471,7 @@ a:hover svg {
 	background-color: var(--text-white-color);
 	border-radius: 50%;
 	background-color: var(--text-white-color);
-	transition: 550ms var(--animation);
+	transition: background-color 250ms var(--animation);
 }
 
 .social-icon-link:hover .social-icon {
@@ -528,7 +528,7 @@ a:hover svg {
 	fill: var(--social-icons-color);
 	border: 1px solid var(--social-icons-color);
 	border-radius: 4px;
-	transition: 250ms var(--animation);
+	transition: background-color 250ms var(--animation);
 }
 
 .clients-item:not(:last-child) {
@@ -539,6 +539,9 @@ a:hover svg {
 	width: calc((100% - 30px * 5) / 6);
 }
 
+.clients-icon {
+	transition: fill 250ms var(--animation);
+}
 .clients-link:hover .clients-icon {
 	fill: var(--accent-color);
 }
@@ -622,7 +625,7 @@ a:hover svg {
 	height: 44px;
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 50%;
-	transition: 250ms var(--animation);
+	transition: background-color 250ms var(--animation);
 }
 
 .footer-icon-link:hover .social-icon {
@@ -760,7 +763,8 @@ a:hover svg {
 
 .overlay-text {
 	position: absolute;
-	top: 0;
+	width: 100%;
+
 	height: 100%;
 	padding: 63px 24px;
 	margin: 0;
@@ -770,22 +774,23 @@ a:hover svg {
 	line-height: 1.55;
 	letter-spacing: 0.03em;
 	color: var(--text-white-color);
-	opacity: 0;
+	opacity: 1;
+	transform: translateY(100%);
 
 	background: rgba(33, 150, 243, 0.9);
 
-	transform: translateY(100%);
 	transition: transform 250ms var(--animation);
 	overflow: hidden;
 }
 
 .portfolio-image {
 	position: relative;
+	overflow: hidden;
 }
 
-.portfolio-image:hover .overlay-text {
+.portfolio-item:hover .overlay-text {
 	opacity: 1;
-	transform: translateX(0);
+	transform: translateY(-100%);
 }
 
 /* block */
